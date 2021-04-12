@@ -1,0 +1,11 @@
+<div class="card">
+ <%= link_to image_tag(animal.image, class: :card__img), root_path %>
+
+  <div class="card__body">
+    <%= link_to animal.name, root_path, class: :card__name%>
+    <p class="card__summary">
+      <%= "地域 #{animal.prefecture.name}" %>
+      </p>
+    <%= link_to animal.user.nickname, root_path, class: :card__user %>
+  </div>
+</div>
