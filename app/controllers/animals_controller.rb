@@ -1,5 +1,7 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:edit, :show, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :move_to_index, except: [:index, :show, :new ,:create, :destroy, :update]
 
   def index
     @animals = Animal.includes(:user)
@@ -19,7 +21,6 @@ class AnimalsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -42,8 +43,14 @@ class AnimalsController < ApplicationController
   def animal_params
     params.require(:animal).permit(:name, :text, :category_id,:prefecture_id,:animal_area,:storage_place_pet_id,:storage_time_id,:image).merge(user_id: current_user.id)
   end
-end
 
-def set_animal
-  @animal = Animal.find(params[:id])
+  def set_animal
+    @animal = Animal.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in? && current_user.id == @animal.user_id
+     redirect_to action: :index
+    end
+  end
 end
