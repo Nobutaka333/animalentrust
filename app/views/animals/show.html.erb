@@ -1,0 +1,47 @@
+<main class="main">
+ <div class="inner">
+   <div class="animal__wrapper">
+     <p class="animal__hedding">
+       <%= "#{@animal.name}"%>
+     </p>
+     <%= link_to "#{@animal.user.nickname}", root_path, class: :animal__user %>
+      <% if user_signed_in? && current_user.id == @animal.user_id %>
+       <div class="animal__manage">
+         <%= link_to "編集する", edit_animal_path(@animal), class: :animal__btn %>
+         <%= link_to "削除する", animal_path(@animal), method: :delete, class: :animal__btn %>
+       </div>
+      <% end %>
+     <div class="animal__image">
+      <%= image_tag @animal.image ,class:"animal-img" %>
+     </div>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-animal">募集理由</th>
+            <td class="detail-value"><%= "#{@animal.text}" %></td>
+          </tr>
+          <tr>
+            <th class="detail-animal">カテゴリー</th>
+            <td class="detail-value"><%= "#{@animal.category.name}" %></td>
+          </tr>
+          <tr>
+            <th class="detail-animal">都道府県</th>
+            <td class="detail-value"><%= "#{@animal.prefecture.name}" %></td>
+          </tr>
+          <tr>
+            <th class="detail-animal">募集地域</th>
+            <td class="detail-value"><%= "#{@animal.animal_area}" %></td>
+          </tr>
+          <tr>
+            <th class="detail-animal">預かり場所</th>
+            <td class="detail-value"><%= "#{@animal.storage_place_pet.name}" %></td>
+          </tr>
+          <tr>
+            <th class="detail-animal">預かり期間</th>
+            <td class="detail-value"><%= "#{@animal.storage_time.name}" %></td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+ </div>
+</main>

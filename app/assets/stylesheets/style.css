@@ -144,7 +144,7 @@ a {
 .card__img {
   margin-bottom: 16px;
 }
-.card__title {
+.card__name {
   display: block;
   font-size: 20px;
   margin-bottom: 8px;
@@ -308,7 +308,7 @@ a {
     width: 100%;
     margin-bottom: 60px;
   }
-  .card__title {
+  .card__name {
     font-size: 18px;
   }
   .card__summary {
