@@ -6,6 +6,7 @@ class CreateAnimals < ActiveRecord::Migration[6.0]
       t.integer :category_id,           null: false
       t.integer :storage_place_pet_id,  null: false
       t.integer :prefecture_id,         null: false
+      t.string  :animal_area,           null: false    
       t.integer :storage_time_id,       null: false
       t.references :user,               null: false, foreign_key: true
       t.timestamps

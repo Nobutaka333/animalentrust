@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_033636) do
     t.integer "category_id", null: false
     t.integer "storage_place_pet_id", null: false
     t.integer "prefecture_id", null: false
+    t.string "animal_area", null: false
     t.integer "storage_time_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

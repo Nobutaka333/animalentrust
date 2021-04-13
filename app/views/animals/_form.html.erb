@@ -15,8 +15,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :prefecture_id, "募集地域" %><br />
+    <%= f.label :prefecture_id, "都道府県" %><br />
     <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"animal-prefecture"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :animal_area, "募集地域" %><br />
+    <%= f.text_field :animal_area, id:"animal-area" %>
   </div>
 
   <div class="field">
@@ -46,6 +51,6 @@
     </div>
     <%# /注意書き %>
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn  %>
+    <%= f.submit "募集する", class: :form__btn  %>
   </div>
 <% end %>
