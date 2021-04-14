@@ -1,2 +1,13 @@
-<h1>Animals#index</h1>
-<p>Find me in app/views/animals/index.html.erb</p>
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
+        <%= "としてログイン中です" %>
+      </div>
+    <% end %>
+    <div class="card__wrapper">
+      <%= render partial: 'animal', collection: @animals %>
+    </div>
+  </div>
+</main>
