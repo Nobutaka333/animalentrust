@@ -61,6 +61,7 @@ Things you may want to cover:
 | category_id          | integer    | null: false                    |
 | storage_place_pet_id | integer    | null: false                    |
 | prefecture_id        | integer    | null: false                    |
+| animal_erea          | string     | null: false                    |
 | storage_time         | integer    | null: false                    |
 | user                 | references | null: false, foreign_key: true |
 
