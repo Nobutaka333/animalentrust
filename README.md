@@ -27,26 +27,11 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column             | Type    | Options                   |
-| ------------------ | ------- | ------------------------- |
-| nickname           | string  | null: false               |
-| email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false               |
-
-
-### Association
-- has_many :animals
-- has_many :orders
-- has_many :room_users
-- has_many :rooms, through: room_users
-- has_many :messages
-- has_one  :details
-
-
-## details テーブル
-
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
+| email              | string     | null: false, unique: true      |
+| encrypted_password | string     | null: false                    |
+| nickname           | string     | null: false                    |
 | last_name          | string     | null: false                    |
 | first_name         | string     | null: false                    |
 | last_name_kana     | string     | null: false                    |
@@ -57,12 +42,14 @@ Things you may want to cover:
 | city               | string     | null: false                    |
 | address            | string     | null: false                    |
 | buliding_name      | string     |                                |
-| tel                | integer    | null: false                    |
-| user               | references | null: false, foreign_key: true |
-
+| tel                | string     | null: false                    |
 
 ### Association
-- belongs_to :user
+- has_many :animals
+- has_many :orders
+- has_many :room_users
+- has_many :rooms, through: room_users
+- has_many :messages
 
 
 ## animals テーブル
