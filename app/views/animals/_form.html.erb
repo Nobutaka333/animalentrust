@@ -1,0 +1,56 @@
+<%= form_with model: animal, local: true do |f|%>
+  <div class="field">
+    <%= f.label :name, "募集名" %><br />
+    <%= f.text_field :name, id:"animal-name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text, "募集理由" %><br />
+    <%= f.text_area :text, class: :form__text, id:"animal-text" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id, "カテゴリー" %><br />
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"animal-category"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_id, "都道府県" %><br />
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"animal-prefecture"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :animal_area, "市区町村" %><br />
+    <%= f.text_field :animal_area, id:"animal-area" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :storage_place_pet_id, "預かり場所" %><br />
+    <%= f.collection_select(:storage_place_pet_id, StoragePlacePet.all, :id, :name, {}, {class:"select-box", id:"animal-storage-place-pet"}) %>
+  </div>
+
+    <div class="field">
+      <%= f.label :storage_time_id, "預かり期間" %><br />
+      <%= f.collection_select(:storage_time_id, StorageTime.all, :id, :name, {}, {class:"select-box", id:"animal-storage-time"}) %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :image, "画像" %><br />
+    <%= f.file_field :image, id:"animal_image" %>
+  </div>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">特定外来生物および条約や法律などで保護されている動物の預かり募集は禁止です。</a>
+      </p>
+      <p class="sentence">
+        また、出品をもちまして出品規約に同意したことになります。
+      </p>
+    </div>
+    <%# /注意書き %>
+  <div class="actions">
+    <%= f.submit "募集する", class: :form__btn  %>
+  </div>
+<% end %>
