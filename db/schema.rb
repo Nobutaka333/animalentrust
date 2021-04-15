@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 2021_04_09_033636) do
     t.index ["user_id"], name: "index_animals_on_user_id"
   end
 
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "animal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["animal_id"], name: "index_rooms_on_animal_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,4 +81,5 @@ ActiveRecord::Schema.define(version: 2021_04_09_033636) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "animals", "users"
+  add_foreign_key "rooms", "animals"
 end
