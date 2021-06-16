@@ -1,4 +1,4 @@
-<%= form_with model: animal, local: true do |f|%>
+<%= form_with model: @animal, local: true do |f|%>
   <div class="field">
     <%= f.label :name, "募集名" %><br />
     <%= f.text_field :name, id:"animal-name" %>
