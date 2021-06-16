@@ -6,6 +6,7 @@ class Animal < ApplicationRecord
   belongs_to :storage_time
   belongs_to :user
   has_one_attached :image
+  has_many :rooms
 
   with_options presence: true do
     validates :name
